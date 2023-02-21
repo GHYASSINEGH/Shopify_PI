@@ -11,13 +11,15 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class Boutique {
+public class Categorie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idbou;
-    private String nombou;
-    private String descriptionbou;
+    private Long idCat;
+    private String nomCat;
+    private String descriptionCat;
     @JsonIgnore
-    @OneToMany(mappedBy = "boutique")
-    private List<Categorie> categories;
+    @OneToMany(mappedBy = "categorie")
+    private List<Produit> produits;
+    @ManyToOne
+    private Boutique boutique;
 }
